@@ -33,10 +33,11 @@
   position: relative;
   text-decoration: none;
   clip-path: inset(0);
-  font-weight: 900;
+  /* font-weight: 900; */
+  font-size: 1.5rem;
   @media (max-width: $mantine-breakpoint-sm) {
-    font-size: 1.5rem;
-    line-height: 2.25rem;
+    /* font-size: 1.5rem; */
+    /* line-height: 2.25rem; */
   }
   @media (min-width: $mantine-breakpoint-md) {
   }

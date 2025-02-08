@@ -34,7 +34,7 @@
   text-decoration: none;
   clip-path: inset(0);
   /* font-weight: 900; */
-  font-size: 1.5rem;
+  font-size: 1.2rem;
   @media (max-width: $mantine-breakpoint-sm) {
     /* font-size: 1.5rem; */
     /* line-height: 2.25rem; */

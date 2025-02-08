@@ -1,18 +1,31 @@
 import Link from 'next/link';
+import { motion } from 'framer-motion';
 import { menulinks } from './data';
-import classses from './HeaderMenu.module.css';
+import { motionMenuButton, motionTextActive, motionTextDim } from './motion';
+import classes from './HeaderMenu.module.css';
 
 function HeaderMenu() {
   return (
     <>
-      <div className={classses.menu}>
+      <div className={classes.menu}>
         {menulinks.map((menuitem: any) => (
-          <div key={menuitem.id} className={classses.item}>
-            <Link className={classses.link} href={menuitem.href} scroll={false}>
-              <span className={classses.link_text}>{menuitem.label}</span>
-              <span className={classses.link_active}>{menuitem.label}</span>
+          <motion.div
+            key={menuitem.id}
+            className={classes.item}
+            whileHover="active"
+            initial="neutral"
+            // animate={activeSection === menuitem.label ? 'active' : 'neutral'}
+            // variants={motionMenuButton}
+          >
+            <Link className={classes.link} href={menuitem.href} scroll={false}>
+              <motion.span className={classes.link_text} variants={motionTextDim}>
+                {menuitem.label}
+              </motion.span>
+              <motion.span className={classes.link_active} variants={motionTextActive}>
+                {menuitem.label}
+              </motion.span>
             </Link>
-          </div>
+          </motion.div>
         ))}
       </div>
     </>

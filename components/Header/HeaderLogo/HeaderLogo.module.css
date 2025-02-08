@@ -1,0 +1,38 @@
+.container {
+  /* position: fixed; */
+  /* top: 5em; */
+  /* right: 5em; */
+  /* left: 5em; */
+  width: 5em;
+  height: 5em;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  /* place-items: center; */
+  /* place-content: ; */
+  /* z-index: 250; */
+  /* transform: translate(-50%, -50%); */
+  /* background-color: var(--mantine-color-white); */
+}
+.link {
+  width: 4.5em;
+  height: 4.5em;
+  display: grid;
+  place-content: center;
+  place-items: center;
+  padding: 0 1em;
+  /* cursor: default; */
+  user-select: none;
+  text-decoration: none;
+  display: grid;
+  width: max-content;
+  background-color: #0c0c0c;
+  justify-content: center;
+}
+.link_letterm {
+  align-self: center;
+  color: var(--mantine-color-white);
+  font-size: 4rem;
+  text-align: center;
+  /* line-height: rem; */
+}

@@ -6,6 +6,8 @@ import type { AppProps } from 'next/app';
 import Head from 'next/head';
 import { createTheme, DEFAULT_THEME, MantineProvider, mergeThemeOverrides } from '@mantine/core';
 
+import '../utils/global.css';
+
 // import { theme } from '../theme';
 // import { theme2 } from '@/theme';
 

@@ -6,6 +6,7 @@
   width: 5em;
   height: 5em;
   display: flex;
+  align-self: flex-start;
   align-items: center;
   justify-content: center;
   /* place-items: center; */
@@ -15,8 +16,8 @@
   /* background-color: var(--mantine-color-white); */
 }
 .link {
-  width: 4.5em;
-  height: 4.5em;
+  width: 2.5rem;
+  height: 2.5rem;
   display: grid;
   place-content: center;
   place-items: center;
@@ -32,7 +33,7 @@
 .link_letterm {
   align-self: center;
   color: var(--mantine-color-white);
-  font-size: 4rem;
+  font-size: 2rem;
   text-align: center;
   /* line-height: rem; */
 }

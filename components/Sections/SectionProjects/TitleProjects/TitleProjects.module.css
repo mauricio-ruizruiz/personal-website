@@ -1,0 +1,8 @@
+.title_container {
+  width: min-content;
+  position: sticky;
+  top: 150px;
+  left: 2em;
+  z-index: 50;
+  color: var(--mantine-color-white);
+}

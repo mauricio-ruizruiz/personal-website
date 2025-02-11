@@ -1,9 +1,12 @@
+import { useRef } from 'react';
+import { useScroll } from 'framer-motion';
 import classes from './SectionHome.module.css';
 
-function SectionHome() {
+function SectionHome({ appContainerRef, homeTop, homeFront }: any) {
   return (
     <>
-      <section className={classes.section}>mauricio ruiz ruiz</section>
+      <div className={classes.home_top} ref={homeTop} />
+      <div className={classes.home_front} ref={homeFront} />
     </>
   );
 }

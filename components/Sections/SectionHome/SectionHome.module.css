@@ -10,3 +10,19 @@
   font-size: 3rem;
   /* scroll-snap-align: start; */
 }
+.home_top {
+  position: relative;
+  display: flex;
+  flex-flow: column;
+  width: 100%;
+  min-height: 120vh;
+  background-color: var(--mantine-color-gray-2);
+}
+.home_front {
+  position: relative;
+  display: flex;
+  flex-flow: column;
+  width: 100%;
+  min-height: 120vh;
+  background-color: var(--mantine-color-gray-8);
+}

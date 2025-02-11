@@ -1,4 +1,5 @@
 import { useEffect, useRef, useState } from 'react';
+import { useInView, useScroll } from 'framer-motion';
 import { Container } from '@mantine/core';
 import { ColorSchemeToggle } from '../ColorSchemeToggle/ColorSchemeToggle';
 import Header from '../Header/Header';
@@ -8,7 +9,7 @@ import SectionProjects from '../Sections/SectionProjects/SectionProjects';
 import { Welcome } from '../Welcome/Welcome';
 import classes from './MainApp.module.css';
 
-function MainApp() {
+function MainApp({ activeSection, useToggle }: any) {
   // Mounted State
   const [hasMounted, setHasMounted] = useState(false);
 
@@ -23,7 +24,15 @@ function MainApp() {
   const introHomeTopRef = useRef(null);
   const introHomeFrontRef = useRef(null);
 
-  // Home Intersection Observers
+  // Main App InterSection Observers
+  const homeIsInView = useInView(homeRef, { root: appContainerRef, once: false });
+  const projectsIsInView = useInView(projectsRef, { root: appContainerRef, once: false });
+  const aboutIsInView = useInView(aboutRef, { root: appContainerRef, once: false });
+  const contactIsInView = useInView(contactRef, { root: appContainerRef, once: false });
+
+  // Section Refs
+  const homeTop = useRef<HTMLDivElement | null>(null);
+  const homeFront = useRef<HTMLDivElement | null>(null);
 
   return (
     <>
@@ -32,7 +41,7 @@ function MainApp() {
         <div className={classes.content} ref={appContainerRef}>
           <MainCanvas />
           <section className={classes.section_home} id="home" ref={homeRef}>
-            <SectionHome />
+            <SectionHome homeFront={homeFront} homeTop={homeTop} />
           </section>
           <section className={classes.section_projects} id="projects" ref={projectsRef}>
             <SectionProjects />

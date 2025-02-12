@@ -3691,7 +3691,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@react-three/fiber@npm:^8.17.14":
+"@react-three/fiber@npm:^8.2.2":
   version: 8.17.14
   resolution: "@react-three/fiber@npm:8.17.14"
   dependencies:
@@ -8563,9 +8563,24 @@ __metadata:
   languageName: node
   linkType: hard
 
-"framer-motion@npm:^12.4.1":
-  version: 12.4.1
-  resolution: "framer-motion@npm:12.4.1"
+"framer-motion-3d@npm:^12.4.2":
+  version: 12.4.2
+  resolution: "framer-motion-3d@npm:12.4.2"
+  dependencies:
+    framer-motion: "npm:^12.4.2"
+    react-merge-refs: "npm:^2.0.1"
+  peerDependencies:
+    "@react-three/fiber": 8.2.2
+    react: ">=18.0"
+    react-dom: ">=18.0"
+    three: ">=0.133"
+  checksum: 10c0/c115bce1533152e22b4e25cf2369bb9c6e282cc587ab6d552e16bfcfdb3cd0821aa454dc361708b4736ce8f1340d37046618baafd611b9b4ff42505e922edc00
+  languageName: node
+  linkType: hard
+
+"framer-motion@npm:^12.4.2":
+  version: 12.4.2
+  resolution: "framer-motion@npm:12.4.2"
   dependencies:
     motion-dom: "npm:^12.0.0"
     motion-utils: "npm:^12.0.0"
@@ -8581,7 +8596,7 @@ __metadata:
       optional: true
     react-dom:
       optional: true
-  checksum: 10c0/8d1f521f836d475330b1f9b9073d366f4aa7fcf15b7e697309847fdeeedc65928eff844aa6887ecc908451521934dec73726d8bf6c3895c4e58a88997df9f448
+  checksum: 10c0/31d1a5360278de19ccf8e3e79cf442e15b5c04980130914f8cdcd3becc99fbd47088041b9b92fc9c06af7dc4030dc3b6e2da2c9c3d25cce9e36dc35d1bf6ac51
   languageName: node
   linkType: hard
 
@@ -11096,7 +11111,7 @@ __metadata:
     "@mantine/hooks": "npm:7.16.2"
     "@next/bundle-analyzer": "npm:^15.1.5"
     "@react-three/drei": "npm:^9.121.4"
-    "@react-three/fiber": "npm:^8.17.14"
+    "@react-three/fiber": "npm:^8.2.2"
     "@storybook/nextjs": "npm:^8.5.0"
     "@storybook/react": "npm:^8.5.0"
     "@tabler/icons-react": "npm:^3.28.1"
@@ -11114,9 +11129,10 @@ __metadata:
     eslint-config-mantine: "npm:^4.0.3"
     eslint-plugin-jsx-a11y: "npm:^6.10.2"
     eslint-plugin-react: "npm:^7.37.4"
-    framer-motion: "npm:^12.4.1"
+    framer-motion-3d: "npm:^12.4.2"
     jest: "npm:^29.7.0"
     jest-environment-jsdom: "npm:^29.7.0"
+    motion: "npm:^12.4.2"
     next: "npm:14.2.22"
     postcss: "npm:^8.5.1"
     postcss-preset-mantine: "npm:1.17.0"
@@ -11461,6 +11477,27 @@ __metadata:
   version: 12.0.0
   resolution: "motion-utils@npm:12.0.0"
   checksum: 10c0/ca6cc7542d00afab011130fcd940e5f5a412b21a4eaeb17c0a497dcb86de311dda90741eeca7de1276cc8c1dff7ac1e6a8df1e8cebb1191a2c43bfe8368dc70b
+  languageName: node
+  linkType: hard
+
+"motion@npm:^12.4.2":
+  version: 12.4.2
+  resolution: "motion@npm:12.4.2"
+  dependencies:
+    framer-motion: "npm:^12.4.2"
+    tslib: "npm:^2.4.0"
+  peerDependencies:
+    "@emotion/is-prop-valid": "*"
+    react: ^18.0.0 || ^19.0.0
+    react-dom: ^18.0.0 || ^19.0.0
+  peerDependenciesMeta:
+    "@emotion/is-prop-valid":
+      optional: true
+    react:
+      optional: true
+    react-dom:
+      optional: true
+  checksum: 10c0/296f7d381c8b854a26126098240e57219edebf61090e724aca8aea3b9b926ece7cf0f2d9766858431b02d89716604c080a9f70eef3026a3c2cee0ac9f3465a62
   languageName: node
   linkType: hard
 
@@ -12726,6 +12763,13 @@ __metadata:
   version: 18.2.0
   resolution: "react-is@npm:18.2.0"
   checksum: 10c0/6eb5e4b28028c23e2bfcf73371e72cd4162e4ac7ab445ddae2afe24e347a37d6dc22fae6e1748632cd43c6d4f9b8f86dcf26bf9275e1874f436d129952528ae0
+  languageName: node
+  linkType: hard
+
+"react-merge-refs@npm:^2.0.1":
+  version: 2.1.1
+  resolution: "react-merge-refs@npm:2.1.1"
+  checksum: 10c0/b68cbc4ea51fd96f77247733388738630769d928f32958e63262ce43dff10c6b20f18a0483c6a640a1ffba48f32be26059d4ee9711881cacc63297b01311c8f6
   languageName: node
   linkType: hard
 

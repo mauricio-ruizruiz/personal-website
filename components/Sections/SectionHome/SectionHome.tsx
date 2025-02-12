@@ -1,5 +1,4 @@
 import { useRef } from 'react';
-import { useScroll } from 'framer-motion';
 import classes from './SectionHome.module.css';
 
 function SectionHome({ appContainerRef, homeTop, homeFront }: any) {

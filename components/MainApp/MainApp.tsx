@@ -1,5 +1,5 @@
 import { useEffect, useRef, useState } from 'react';
-import { useInView, useScroll } from 'framer-motion';
+import { motion, useInView, useScroll, useTransform } from 'motion/react';
 import { Container } from '@mantine/core';
 import { ColorSchemeToggle } from '../ColorSchemeToggle/ColorSchemeToggle';
 import Header from '../Header/Header';
@@ -30,16 +30,29 @@ function MainApp({ activeSection, useToggle }: any) {
   const aboutIsInView = useInView(aboutRef, { root: appContainerRef, once: false });
   const contactIsInView = useInView(contactRef, { root: appContainerRef, once: false });
 
-  // Section Refs
+  // Home Section Refs
   const homeTop = useRef<HTMLDivElement | null>(null);
   const homeFront = useRef<HTMLDivElement | null>(null);
+
+  // Scroll Effect
+  const { scrollYProgress } = useScroll({
+    container: appContainerRef,
+    target: homeTop,
+    offset: ['start', 'end start'],
+    layoutEffect: false,
+  });
+  const scrollEffectScalex = useTransform(scrollYProgress, [0, 1], [0, 1]);
 
   return (
     <>
       <Header />
       <main className={classes.container}>
         <div className={classes.content} ref={appContainerRef}>
-          <MainCanvas />
+          <MainCanvas scrollHome={scrollYProgress} />
+          <motion.div
+            className={classes.scroll_test}
+            style={{ originX: 0, scaleX: scrollEffectScalex }}
+          ></motion.div>
           <section className={classes.section_home} id="home" ref={homeRef}>
             <SectionHome homeFront={homeFront} homeTop={homeTop} />
           </section>
@@ -56,7 +69,6 @@ function MainApp({ activeSection, useToggle }: any) {
       </main>
       {/* <Welcome /> */}
       {/* <ColorSchemeToggle /> */}
-      {/* </Container> */}
     </>
   );
 }

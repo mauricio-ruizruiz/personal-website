@@ -4,7 +4,7 @@
 const nextConfig = {
   /* config options here */
   transpilePackages: ['three'],
-  swcMinify: false,
+  // swcMinify: false,
 };
 
 module.exports = nextConfig;

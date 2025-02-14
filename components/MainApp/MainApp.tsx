@@ -46,13 +46,13 @@ function MainApp({ activeSection, useToggle }: any) {
   return (
     <>
       <Header />
-      <main className={classes.container}>
-        <div className={classes.content} ref={appContainerRef}>
-          <MainCanvas scrollHome={scrollYProgress} />
-          <motion.div
+      <main className={classes.container} ref={appContainerRef}>
+        <MainCanvas scrollHome={scrollYProgress} />
+        <div className={classes.content}>
+          {/* <motion.div
             className={classes.scroll_test}
             style={{ originX: 0, scaleX: scrollEffectScalex }}
-          ></motion.div>
+          ></motion.div> */}
           <section className={classes.section_home} id="home" ref={homeRef}>
             <SectionHome homeFront={homeFront} homeTop={homeTop} />
           </section>

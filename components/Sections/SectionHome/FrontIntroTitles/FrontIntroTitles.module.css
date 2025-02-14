@@ -1,0 +1,9 @@
+.title {
+}
+.text {
+  display: block;
+  position: relative;
+  white-space: nowrap;
+  font-size: 2rem;
+  text-align: end;
+}

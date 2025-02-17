@@ -12,15 +12,15 @@ const HomeTitleName: React.FC = ({ y }) => {
   return (
     <motion.div
       layout
-      //  initial="hidden"
-      //  animate="visible"
-      //  variants={variants}
+      // initial="hidden"
+      // animate="visible"
+      // variants={variants}
       className={classes.container}
     >
       <motion.h1
         className={classes.name}
         style={{ y: y }}
-        //    initial="hidden"
+        //  initial="hidden"
         //    animate="visible"
         //    variants={{
         //      hidden: { y: '100%' },

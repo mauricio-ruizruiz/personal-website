@@ -1,27 +1,46 @@
-import { motion } from 'motion/react';
+import { motion } from 'framer-motion';
 import classes from './FrontIntroTitles.module.css';
 
-function FrontIntroTitles({ y }) {
+interface TextData {
+  id: number;
+  text: string;
+}
+
+// interface FrontIntroTitlesProps {
+//   scrollEffect_Fill: string;
+//   scrollMask: string;
+// }
+
+function FrontIntroTitles({ scrollEffect_Fill, scrollMaskEffects }: any) {
+  const textdata: TextData[] = [
+    { id: 1, text: 'frontend developer' },
+    { id: 2, text: 'motion graphics' },
+    { id: 3, text: '3d artist' },
+  ];
+
   return (
-    <>
-      <motion.div>
-        <h2 className={classes.title}>
-          <span className={classes.text} style={{ y: y }}>
-            FrontEnd Developer
+    <motion.div className={classes.container}>
+      {textdata.map((text) => (
+        <motion.div
+          key={text.id}
+          className={classes.title}
+          // style={{ clipPath: scrollEffect_Fill }}
+          // style={{ clipPath: scrollEffect_Fill }}
+          style={{ clipPath: scrollMaskEffects }}
+          // style={{ scaleX: scrollMaskEffects, originX: 0 }}
+          // style={}
+        >
+          <span className={classes.text}>
+            {text.text}
+            <motion.span
+              className={classes.fill}
+              style={{ clipPath: scrollEffect_Fill }}
+              // style={{ scaleX: scrollEffect_Fill }}
+            />
           </span>
-        </h2>
-        <h2 className={classes.title}>
-          <span className={classes.text} style={{ y: y }}>
-            Motion graphics
-          </span>
-        </h2>
-        <h2 className={classes.title}>
-          <span className={classes.text} style={{ y: y }}>
-            3d Artist
-          </span>
-        </h2>
-      </motion.div>
-    </>
+        </motion.div>
+      ))}
+    </motion.div>
   );
 }
 

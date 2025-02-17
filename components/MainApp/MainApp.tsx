@@ -43,18 +43,29 @@ function MainApp({ activeSection, useToggle }: any) {
   });
   const scrollEffectScalex = useTransform(scrollYProgress, [0, 1], [0, 1]);
 
+  const { scrollYProgress: scrollYProgressFront } = useScroll({
+    container: appContainerRef,
+    target: homeFront,
+    offset: ['start', 'end start'],
+    layoutEffect: false,
+  });
+
   return (
     <>
       <Header />
       <main className={classes.container} ref={appContainerRef}>
-        <MainCanvas scrollHome={scrollYProgress} />
+        <MainCanvas scrollYHome={scrollYProgress} />
         <div className={classes.content}>
           {/* <motion.div
             className={classes.scroll_test}
             style={{ originX: 0, scaleX: scrollEffectScalex }}
           ></motion.div> */}
           <section className={classes.section_home} id="home" ref={homeRef}>
-            <SectionHome homeFront={homeFront} homeTop={homeTop} />
+            <SectionHome
+              homeFront={homeFront}
+              homeTop={homeTop}
+              home_front={scrollYProgressFront}
+            />
           </section>
           <section className={classes.section_projects} id="projects" ref={projectsRef}>
             <SectionProjects />

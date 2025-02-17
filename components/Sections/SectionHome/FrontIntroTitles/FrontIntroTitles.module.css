@@ -1,9 +1,36 @@
-.title {
+.container {
+  position: relative;
+  display: grid;
+  grid: repeat(3, 1fr) / 1fr;
+  grid-gap: 0.5rem;
 }
+.title {
+  position: relative;
+  padding: 0.25rem;
+  width: fit-content;
+  align-self: center;
+  justify-self: end;
+  /* clip-path: inset(0 100% 0 0); */
+  background-color: var(--mantine-color-white);
+  /* width: max-content; */
+  /* background-color: var(--mantine-color-black); */
+}
+
 .text {
   display: block;
   position: relative;
+  width: min-content;
   white-space: nowrap;
-  font-size: 2rem;
+  font-size: 1.5rem;
   text-align: end;
+  justify-self: end;
+}
+.fill {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  /* height: min-content; */
+  background-color: var(--mantine-color-black);
 }

@@ -1,15 +1,16 @@
 .container {
   display: block;
-  position: relative;
+  position: fixed;
+  top: 40%;
+  left: 50%;
   text-decoration: none;
   clip-path: inset(0);
   max-width: max-content;
-  padding: 0.5em 0.5em 0 0.5em;
   transform: translate(-50%, -50%);
-  overflow: none;
+  z-index: 900;
   /* background-color: var(--mantine-color-black); */
 }
-h1.name {
+.name {
   display: block;
   position: relative;
   white-space: nowrap;
@@ -17,7 +18,7 @@ h1.name {
   font-weight: 700;
   color: var(--mantine-color-text);
   margin: 0;
-  padding: 0;
+  padding: 0.25em;
   text-align: center;
   user-select: none;
   /* background-color: var(--mantine-color-green-9); */

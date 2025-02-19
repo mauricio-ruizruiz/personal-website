@@ -4,7 +4,7 @@ import { Container } from '@mantine/core';
 import { ColorSchemeToggle } from '../ColorSchemeToggle/ColorSchemeToggle';
 import Header from '../Header/Header';
 import MainCanvas from '../MainCanvas/MainCanvas';
-import SectionHome from '../Sections/SectionHome/SectionHome';
+import Home from '../Sections/Home/Home';
 import SectionProjects from '../Sections/SectionProjects/SectionProjects';
 import { Welcome } from '../Welcome/Welcome';
 import classes from './MainApp.module.css';
@@ -20,10 +20,6 @@ function MainApp({ activeSection, useToggle }: any) {
   const aboutRef = useRef<HTMLDivElement | null>(null);
   const contactRef = useRef<HTMLDivElement | null>(null);
 
-  // Home Refs Sections
-  const introHomeTopRef = useRef(null);
-  const introHomeFrontRef = useRef(null);
-
   // Main App InterSection Observers
   const homeIsInView = useInView(homeRef, { root: appContainerRef, once: false });
   const projectsIsInView = useInView(projectsRef, { root: appContainerRef, once: false });
@@ -31,22 +27,35 @@ function MainApp({ activeSection, useToggle }: any) {
   const contactIsInView = useInView(contactRef, { root: appContainerRef, once: false });
 
   // Home Section Refs
-  const homeTop = useRef<HTMLDivElement | null>(null);
-  const homeFront = useRef<HTMLDivElement | null>(null);
+  const homeIntroRef = useRef<HTMLDivElement | null>(null);
+  const homeInterRef = useRef<HTMLDivElement | null>(null);
+  const homeMidRef = useRef<HTMLDivElement | null>(null);
+  const homeOutroRef = useRef<HTMLDivElement | null>(null);
 
-  // Scroll Effect
-  const { scrollYProgress } = useScroll({
+  // // Scroll Effect
+  const { scrollYProgress: scrollYProgressHomeIntro } = useScroll({
     container: appContainerRef,
-    target: homeTop,
+    target: homeIntroRef,
     offset: ['start', 'end start'],
     layoutEffect: false,
   });
-  const scrollEffectScalex = useTransform(scrollYProgress, [0, 1], [0, 1]);
 
-  const { scrollYProgress: scrollYProgressFront } = useScroll({
+  const { scrollYProgress: scrollYProgressHomeInterA } = useScroll({
     container: appContainerRef,
-    target: homeFront,
+    target: homeInterRef,
+    offset: ['end', 'end start'],
+    layoutEffect: false,
+  });
+  const { scrollYProgress: scrollYProgressHomeInterB } = useScroll({
+    container: appContainerRef,
+    target: homeInterRef,
     offset: ['start', 'end start'],
+    layoutEffect: false,
+  });
+  const { scrollYProgress: scrollYProgressHomeOutro } = useScroll({
+    container: appContainerRef,
+    target: homeOutroRef,
+    offset: ['start end', 'end start'],
     layoutEffect: false,
   });
 
@@ -54,17 +63,21 @@ function MainApp({ activeSection, useToggle }: any) {
     <>
       <Header />
       <main className={classes.container} ref={appContainerRef}>
-        <MainCanvas scrollYHome={scrollYProgress} />
+        <MainCanvas
+          scrollYProgressHomeIntro={scrollYProgressHomeIntro}
+          scrollYProgressHomeOutro={scrollYProgressHomeOutro}
+        />
         <div className={classes.content}>
-          {/* <motion.div
-            className={classes.scroll_test}
-            style={{ originX: 0, scaleX: scrollEffectScalex }}
-          ></motion.div> */}
           <section className={classes.section_home} id="home" ref={homeRef}>
-            <SectionHome
-              homeFront={homeFront}
-              homeTop={homeTop}
-              home_front={scrollYProgressFront}
+            <Home
+              appContainerRef={appContainerRef}
+              homeIntroRef={homeIntroRef}
+              homeInterRef={homeInterRef}
+              homeMidRef={homeMidRef}
+              homeOutroRef={homeOutroRef}
+              scrollYProgressHomeIntro={scrollYProgressHomeIntro}
+              scrollYProgressHomeInterA={scrollYProgressHomeInterA}
+              scrollYProgressHomeInterB={scrollYProgressHomeInterB}
             />
           </section>
           <section className={classes.section_projects} id="projects" ref={projectsRef}>

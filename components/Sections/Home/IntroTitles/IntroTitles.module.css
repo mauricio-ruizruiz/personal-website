@@ -1,9 +1,15 @@
 .container {
-  position: relative;
+  position: fixed;
+  top: 40%;
+  left: 55%;
   display: grid;
   grid: repeat(3, 1fr) / 1fr;
+  /* grid: 1fr / repeat(3, 1fr); */
   grid-gap: 0.5rem;
+  transform: translate(-50%, -100%);
+  z-index: 900;
 }
+
 .title {
   position: relative;
   padding: 0.25rem;
@@ -11,7 +17,7 @@
   align-self: center;
   justify-self: end;
   /* clip-path: inset(0 100% 0 0); */
-  background-color: var(--mantine-color-white);
+  /* background-color: var(--mantine-color-white); */
   /* width: max-content; */
   /* background-color: var(--mantine-color-black); */
 }

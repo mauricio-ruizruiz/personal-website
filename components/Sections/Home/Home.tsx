@@ -24,7 +24,13 @@ function Home({
       <div className={classes.intro} ref={homeIntroRef} />
       <div className={classes.inter} ref={homeInterRef} />
       <div className={classes.mid} ref={homeMidRef} />
-      <div className={classes.outro} ref={homeOutroRef} />
+      <div
+        className={classes.outro}
+        ref={homeOutroRef}
+        style={{ display: 'grid', placeItems: 'center' }}
+      >
+        outro
+      </div>
     </>
   );
 }

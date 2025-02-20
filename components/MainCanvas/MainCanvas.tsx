@@ -22,7 +22,7 @@ function MainCanvas({ scrollYProgressHomeIntro, scrollYProgressHomeOutro }) {
 
   const posYSrcoll = useTransform(scrollYProgressHomeIntro, [0, 1], [0, -1]);
   const rotationXSrcoll = useTransform(scrollYProgressHomeIntro, [0, 1], [0, Math.PI * -0.5]);
-  const posXOutro = useTransform(scrollYProgressHomeIntro, [0, 1], [0, 10]);
+  const posXOutro = useTransform(scrollYProgressHomeOutro, [0, 1], [0, -10]);
 
   return (
     <section className={classes.canvas} ref={canvasContainerRef}>

@@ -78,6 +78,7 @@ function MainApp({ activeSection, useToggle }: any) {
               scrollYProgressHomeIntro={scrollYProgressHomeIntro}
               scrollYProgressHomeInterA={scrollYProgressHomeInterA}
               scrollYProgressHomeInterB={scrollYProgressHomeInterB}
+              scrollYProgressHomeOutro={scrollYProgressHomeOutro}
             />
           </section>
           <section className={classes.section_projects} id="projects" ref={projectsRef}>

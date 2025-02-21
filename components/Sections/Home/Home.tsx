@@ -12,7 +12,7 @@ function Home({
   scrollYProgressHomeIntro,
   scrollYProgressHomeInterA,
   scrollYProgressHomeInterB,
-  // scrollYProgressHomeOutro,
+  scrollYProgressHomeOutro,
 }) {
   return (
     <>
@@ -20,6 +20,7 @@ function Home({
       <IntroTitles
         scrollYProgressHomeInter={scrollYProgressHomeInterA}
         scrollYProgressHomeInterB={scrollYProgressHomeInterB}
+        scrollYProgressHomeOutro={scrollYProgressHomeOutro}
       />
       <div className={classes.intro} ref={homeIntroRef} />
       <div className={classes.inter} ref={homeInterRef} />

@@ -21,13 +21,16 @@
   /* width: max-content; */
   /* background-color: var(--mantine-color-black); */
 }
-
+.text_wrapper {
+  position: relative;
+  display: inline-block;
+}
 .text {
-  display: block;
+  /* display: block; */
   position: relative;
   width: min-content;
   white-space: nowrap;
-  font-size: 1.5rem;
+  font-size: 5rem;
   text-align: end;
   justify-self: end;
 }

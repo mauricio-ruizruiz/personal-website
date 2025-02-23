@@ -32,7 +32,11 @@ function MainApp({ activeSection, useToggle }: any) {
   const homeMidRef = useRef<HTMLDivElement | null>(null);
   const homeOutroRef = useRef<HTMLDivElement | null>(null);
 
-  // // Scroll Effect
+  // Projects Section Refs
+  const projectsBigTitleRef = useRef<HTMLDivElement | null>(null); // BigTitle
+  const projectsTitleRef = useRef<HTMLDivElement | null>(null); // TitleProjects
+
+  // // Scroll Effects for Home Section
   const { scrollYProgress: scrollYProgressHomeIntro } = useScroll({
     container: appContainerRef,
     target: homeIntroRef,
@@ -55,6 +59,14 @@ function MainApp({ activeSection, useToggle }: any) {
   const { scrollYProgress: scrollYProgressHomeOutro } = useScroll({
     container: appContainerRef,
     target: homeOutroRef,
+    offset: ['start end', 'end start'],
+    layoutEffect: false,
+  });
+
+  // // Scroll Effects for Projects Section
+  const { scrollYProgress: scrollYProgressProjectsBigTitle } = useScroll({
+    container: appContainerRef,
+    target: projectsBigTitleRef,
     offset: ['start end', 'end start'],
     layoutEffect: false,
   });
@@ -82,7 +94,10 @@ function MainApp({ activeSection, useToggle }: any) {
             />
           </section>
           <section className={classes.section_projects} id="projects" ref={projectsRef}>
-            <SectionProjects />
+            <SectionProjects
+              scrollYProgressProjectsBigTitle={scrollYProgressProjectsBigTitle}
+              projectsBigTitleRef={projectsBigTitleRef}
+            />
           </section>
           <section className={classes.section_about} id="about" ref={aboutRef}>
             <div className={classes.section}>ABOUT</div>

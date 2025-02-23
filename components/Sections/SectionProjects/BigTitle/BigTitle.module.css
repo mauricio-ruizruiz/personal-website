@@ -1,0 +1,30 @@
+.big_Title_container {
+  width: 100%;
+  height: 100vh;
+  /* position: sticky; */
+  position: relative;
+  /* top: 150px; */
+  /* left: 2em; */
+  z-index: 50;
+  background-color: var(--mantine-color-violet-9);
+}
+.title {
+  font-size: 10rem;
+  position: fixed;
+  height: fit-content;
+  top: 50%;
+  left: 50%;
+  color: var(--mantine-color-white);
+  user-select: none;
+  z-index: 100;
+  /* width: 100%; */
+  /* transform: translate(50vw, -50%); */
+
+  /* left: 0; */
+  /* right: 0; */
+  /* display: grid; */
+  /* place-items: center; */
+  /* place-content: center; */
+  /* right: -100%; */
+  /* right: -100%; */
+}

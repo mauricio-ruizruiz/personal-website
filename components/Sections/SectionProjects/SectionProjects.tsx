@@ -1,13 +1,19 @@
+import BigTitle from './BigTitle/BigTitle';
 import TitleProjects from './TitleProjects/TitleProjects';
 import classes from './SectionProjects.module.css';
 
-function SectionProjects() {
+function SectionProjects({ projectsBigTitleRef, scrollYProgressProjectsBigTitle }: any) {
   return (
     <>
-      <TitleProjects />
-      <section className={classes.container} id="projects">
+      <div className={classes.container}>
+        <BigTitle
+          scrollYProgressProjectsBigTitle={scrollYProgressProjectsBigTitle}
+          projectsBigTitleRef={projectsBigTitleRef}
+        />
+        <div style={{ width: '100%', height: '100vh' }}></div>
+        {/* <TitleProjects /> */}
         {/* <div className={classes.title_container}>Projects</div> */}
-      </section>
+      </div>
     </>
   );
 }

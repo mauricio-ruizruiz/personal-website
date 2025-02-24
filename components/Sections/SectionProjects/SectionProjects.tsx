@@ -3,7 +3,12 @@ import GridGallery from './GridGalley/GridGallery';
 import TitleProjects from './TitleProjects/TitleProjects';
 import classes from './SectionProjects.module.css';
 
-function SectionProjects({ projectsBigTitleRef, scrollYProgressProjectsBigTitle }: any) {
+function SectionProjects({
+  projectsBigTitleRef,
+  scrollYProgressProjectsBigTitle,
+  galleryRef,
+  scrollYProgressProjectsGallery,
+}: any) {
   return (
     <>
       <div className={classes.container}>
@@ -12,7 +17,10 @@ function SectionProjects({ projectsBigTitleRef, scrollYProgressProjectsBigTitle 
           projectsBigTitleRef={projectsBigTitleRef}
         />
       </div>
-      <GridGallery />
+      <GridGallery
+        galleryRef={galleryRef}
+        scrollYProgressProjectsGallery={scrollYProgressProjectsGallery}
+      />
     </>
   );
 }

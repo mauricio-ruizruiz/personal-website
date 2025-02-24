@@ -1,6 +1,6 @@
 .grid_gallery_container {
   position: relative;
-  width: 100%;
+  width: fit-content;
   height: 400vh;
   background-color: var(--mantine-color-violet-5);
 }
@@ -13,21 +13,20 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  background-color: var(--mantine-color-gray-5);
+  /* background-color: var(--mantine-color-gray-5); */
   z-index: 500;
 }
 .gallery {
+  padding: 2em;
   position: relative;
   width: 100%;
   height: 50vh;
   display: grid;
   gap: 1em;
-  justify-items: end;
-  align-content: center;
-  justify-content: end;
+  /* justify-items: end; */
+  /* align-content: center; */
+  justify-content: start;
   align-items: center;
-  /* place-content: center; */
-  /* place-items: center; */
   grid-auto-flow: column;
-  background-color: var(--mantine-color-green-9);
+  /* background-color: var(--mantine-color-green-9); */
 }

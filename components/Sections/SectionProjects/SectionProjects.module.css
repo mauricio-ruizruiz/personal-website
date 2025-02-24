@@ -2,8 +2,8 @@
   position: relative;
   display: flex;
   flex-flow: column;
-  min-height: 200vh;
-  overflow: hidden;
+  /* min-height: 500vh; */
+  /* overflow: hidden; */
   /* overflow: ; */
   /* align-items: center; */
   /* justify-content: center; */

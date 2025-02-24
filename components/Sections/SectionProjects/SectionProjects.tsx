@@ -1,4 +1,5 @@
 import BigTitle from './BigTitle/BigTitle';
+import GridGallery from './GridGalley/GridGallery';
 import TitleProjects from './TitleProjects/TitleProjects';
 import classes from './SectionProjects.module.css';
 
@@ -10,10 +11,8 @@ function SectionProjects({ projectsBigTitleRef, scrollYProgressProjectsBigTitle 
           scrollYProgressProjectsBigTitle={scrollYProgressProjectsBigTitle}
           projectsBigTitleRef={projectsBigTitleRef}
         />
-        <div style={{ width: '100%', height: '100vh' }}></div>
-        {/* <TitleProjects /> */}
-        {/* <div className={classes.title_container}>Projects</div> */}
       </div>
+      <GridGallery />
     </>
   );
 }

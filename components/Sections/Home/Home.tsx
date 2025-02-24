@@ -17,11 +17,11 @@ function Home({
   return (
     <>
       <TitleName scrollYProgressHomeIntro={scrollYProgressHomeIntro} />
-      <IntroTitles
+      {/* <IntroTitles
         scrollYProgressHomeInter={scrollYProgressHomeInterA}
         scrollYProgressHomeInterB={scrollYProgressHomeInterB}
         scrollYProgressHomeOutro={scrollYProgressHomeOutro}
-      />
+      /> */}
       <div className={classes.intro} ref={homeIntroRef} />
       <div className={classes.inter} ref={homeInterRef} />
       <div className={classes.mid} ref={homeMidRef} />

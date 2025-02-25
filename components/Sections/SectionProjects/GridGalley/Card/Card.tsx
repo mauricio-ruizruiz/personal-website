@@ -1,3 +1,4 @@
+import { motion } from 'motion/react';
 import classes from './Card.module.css';
 
 interface CardProps {
@@ -8,12 +9,13 @@ interface CardProps {
     description: string;
     typeOfProject: string;
   };
+  // scaleCard: number;
 }
 
-function Card({ card }: CardProps) {
+function Card({ card, scrollEffect }: any) {
   return (
     <>
-      <div className={classes.card} key={card.id}>
+      <motion.div className={classes.card} key={card.id} style={{ scale: scrollEffect }}>
         <div
           className={classes.card_image}
           style={{
@@ -26,7 +28,7 @@ function Card({ card }: CardProps) {
           <p>{card.description}</p>
           <p>{card.typeOfProject}</p>
         </div> */}
-      </div>
+      </motion.div>
     </>
   );
 }

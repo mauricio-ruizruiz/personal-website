@@ -36,6 +36,12 @@ function MainApp({ activeSection, useToggle }: any) {
   const projectsBigTitleRef = useRef<HTMLDivElement | null>(null); // BigTitle
   const projectsTitleRef = useRef<HTMLDivElement | null>(null); // TitleProjects
   const galleryRef = useRef<HTMLDivElement | null>(null); // Gallery
+  const bgSection1Ref = useRef<HTMLDivElement | null>(null); //
+  const bgSection2Ref = useRef<HTMLDivElement | null>(null); //
+  const bgSection3Ref = useRef<HTMLDivElement | null>(null); //
+  const bgSection4Ref = useRef<HTMLDivElement | null>(null); //
+  const bgSection5Ref = useRef<HTMLDivElement | null>(null); //
+  const bgSection6Ref = useRef<HTMLDivElement | null>(null); //
 
   // // Scroll Effects for Home Section
   const { scrollYProgress: scrollYProgressHomeIntro } = useScroll({
@@ -78,7 +84,43 @@ function MainApp({ activeSection, useToggle }: any) {
     offset: ['start end', 'end end'],
     layoutEffect: false,
   });
-
+  // scroll Effects for  Cards
+  const { scrollYProgress: scrollYProgressProjectsBgSection1 } = useScroll({
+    container: appContainerRef,
+    target: bgSection1Ref,
+    offset: ['start end', 'start start'],
+    layoutEffect: false,
+  });
+  const { scrollYProgress: scrollYProgressProjectsBgSection2 } = useScroll({
+    container: appContainerRef,
+    target: bgSection2Ref,
+    offset: ['start end', 'start start'],
+    layoutEffect: false,
+  });
+  const { scrollYProgress: scrollYProgressProjectsBgSection3 } = useScroll({
+    container: appContainerRef,
+    target: bgSection3Ref,
+    offset: ['start end', 'start start'],
+    layoutEffect: false,
+  });
+  const { scrollYProgress: scrollYProgressProjectsBgSection4 } = useScroll({
+    container: appContainerRef,
+    target: bgSection4Ref,
+    offset: ['start end', 'start start'],
+    layoutEffect: false,
+  });
+  const { scrollYProgress: scrollYProgressProjectsBgSection5 } = useScroll({
+    container: appContainerRef,
+    target: bgSection5Ref,
+    offset: ['start end', 'start start'],
+    layoutEffect: false,
+  });
+  const { scrollYProgress: scrollYProgressProjectsBgSection6 } = useScroll({
+    container: appContainerRef,
+    target: bgSection6Ref,
+    offset: ['start end', 'start start'],
+    layoutEffect: false,
+  });
   return (
     <>
       <Header />
@@ -103,10 +145,23 @@ function MainApp({ activeSection, useToggle }: any) {
           </section>
           <section className={classes.section_projects} id="projects" ref={projectsRef}>
             <SectionProjects
+              appContainerRef={appContainerRef}
               galleryRef={galleryRef}
+              bgSection1Ref={bgSection1Ref}
+              bgSection2Ref={bgSection2Ref}
+              bgSection3Ref={bgSection3Ref}
+              bgSection4Ref={bgSection4Ref}
+              bgSection5Ref={bgSection5Ref}
+              bgSection6Ref={bgSection6Ref}
               scrollYProgressProjectsGallery={scrollYProgressProjectsGallery}
               scrollYProgressProjectsBigTitle={scrollYProgressProjectsBigTitle}
               projectsBigTitleRef={projectsBigTitleRef}
+              scrollYProgressProjectsBgSection1={scrollYProgressProjectsBgSection1}
+              scrollYProgressProjectsBgSection2={scrollYProgressProjectsBgSection2}
+              scrollYProgressProjectsBgSection3={scrollYProgressProjectsBgSection3}
+              scrollYProgressProjectsBgSection4={scrollYProgressProjectsBgSection4}
+              scrollYProgressProjectsBgSection5={scrollYProgressProjectsBgSection5}
+              scrollYProgressProjectsBgSection6={scrollYProgressProjectsBgSection6}
             />
           </section>
           <section className={classes.section_about} id="about" ref={aboutRef}>

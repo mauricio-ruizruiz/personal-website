@@ -6,6 +6,6 @@
   /* top: 150px; */
   /* left: 2em; */
   z-index: 50;
-  background-color: var(--mantine-color-cyan-9);
+  /* background-color: var(--mantine-color-cyan-9); */
   color: var(--mantine-color-white);
 }

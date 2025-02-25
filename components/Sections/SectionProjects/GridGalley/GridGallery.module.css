@@ -1,8 +1,9 @@
 .grid_gallery_container {
   position: relative;
   width: fit-content;
-  height: 400vh;
-  background-color: var(--mantine-color-violet-5);
+  height: 100%;
+  margin-bottom: 5em;
+  /* background-color: var(--mantine-color-violet-5); */
 }
 
 .sticky {
@@ -29,4 +30,27 @@
   align-items: center;
   grid-auto-flow: column;
   /* background-color: var(--mantine-color-green-9); */
+}
+
+.card_section_absolute {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100vh;
+  /* background-color: var(--mantine-color-pink-9); */
+}
+.grid_bg_sections {
+  /* position: absolute;
+  top: 0;
+  left: 0; */
+  position: relative;
+  width: 100%;
+  height: fit-content;
+}
+.bg_section {
+  position: relative;
+  width: 100%;
+  height: 50vh;
+  /* background-color: var(--mantine-color-teal-7); */
 }

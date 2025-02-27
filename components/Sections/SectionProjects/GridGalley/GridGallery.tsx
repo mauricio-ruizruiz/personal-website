@@ -1,5 +1,6 @@
-import { useRef } from 'react';
+import { useEffect, useRef } from 'react';
 import { color, motion, useInView, useTransform } from 'motion/react';
+import { useToggle } from '@mantine/hooks';
 import Card from './Card/Card';
 // import { cardsData } from './cardsData';
 import classes from './GridGallery.module.css';
@@ -21,9 +22,13 @@ function GridGallery({
   scrollYProgressProjectsBgSection5,
   scrollYProgressProjectsBgSection6,
 }: any) {
+  // Hover Card State
+  const [valueHoverCard, toggleHoverCard] = useToggle();
+  // Active Card State
+  const [valueActiveCard, toggleActiveCard] = useToggle();
+
   //Scroll Trnasformations
   const x = useTransform(scrollYProgressProjectsGallery, [0, 1], ['50%', '-80%']);
-  // const scaleCard = useTransform(scrollYProgressProjectsBgSection1, [0, 1], [0, 1]);
   const scaleCardA = useTransform(
     scrollYProgressProjectsBgSection1,
     [0, 0.25, 0.75, 1],
@@ -137,13 +142,33 @@ function GridGallery({
       scrollEffect: scaleCardF,
     },
   ];
+
+  //Set Card Hover and Active State
+  useEffect(() => {
+    // toggleHoverCard(false);
+    // toggleColor(globalColor.pixelpurple);
+    // toggleColor(globalColor.pixelgreen);
+    // toggleSection('Home');
+    // console.log('Fist Render:' + activeSection);
+    console.log('valueHover: ' + valueHoverCard);
+  }, []);
+
   return (
     <>
       <div className={classes.grid_gallery_container} ref={galleryRef}>
         <div className={classes.sticky}>
-          <motion.div className={classes.gallery} style={{ x: x }}>
+          <motion.div
+            className={classes.gallery}
+            // style={{ x: x }}
+          >
             {cardsData.map((card) => (
-              <Card card={card} key={card.id} scrollEffect={card.scrollEffect} />
+              <Card
+                card={card}
+                key={card.id}
+                //  scrollEffect={card.scrollEffect}
+                // hoverCard={{ scale: valueHoverCard && card.id !== 2 ? 1.1 : 1 }}
+                // hoverCard={{ scale: valueHoverCard ? 1.1 : 1 }}
+              />
             ))}
           </motion.div>
         </div>

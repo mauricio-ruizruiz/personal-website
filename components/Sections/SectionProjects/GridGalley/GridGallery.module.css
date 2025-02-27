@@ -1,6 +1,5 @@
 .grid_gallery_container {
   position: relative;
-  width: fit-content;
   height: 100%;
   margin-bottom: 5em;
   /* background-color: var(--mantine-color-violet-5); */
@@ -20,14 +19,15 @@
 .gallery {
   padding: 2em;
   position: relative;
-  width: 100%;
-  height: 50vh;
+  width: fit-content;
+  /* width: 100%; */
+  /* height: 50vh; */
   display: grid;
   gap: 1em;
   /* justify-items: end; */
   /* align-content: center; */
-  justify-content: start;
-  align-items: center;
+  /* justify-content: center; */
+  /* align-items: center; */
   grid-auto-flow: column;
   /* background-color: var(--mantine-color-green-9); */
 }

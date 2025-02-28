@@ -1,8 +1,7 @@
-import { useEffect, useRef } from 'react';
-import { color, motion, useInView, useTransform } from 'motion/react';
+import { useEffect } from 'react';
+import { motion, useTransform } from 'framer-motion';
 import { useToggle } from '@mantine/hooks';
 import Card from './Card/Card';
-// import { cardsData } from './cardsData';
 import classes from './GridGallery.module.css';
 
 function GridGallery({
@@ -23,11 +22,11 @@ function GridGallery({
   scrollYProgressProjectsBgSection6,
 }: any) {
   // Hover Card State
-  const [valueHoverCard, toggleHoverCard] = useToggle();
+  const [valueHoverCard, toggleHoverCard] = useToggle([0, 1, 2, 3, 4, 5]);
   // Active Card State
   const [valueActiveCard, toggleActiveCard] = useToggle();
 
-  //Scroll Trnasformations
+  // Scroll Transformations
   const x = useTransform(scrollYProgressProjectsGallery, [0, 1], ['50%', '-80%']);
   const scaleCardA = useTransform(
     scrollYProgressProjectsBgSection1,
@@ -61,40 +60,17 @@ function GridGallery({
   );
 
   const backgroundCardSections = [
-    {
-      id: 1,
-      color: 'var(--mantine-color-pink-9)',
-      ref: bgSection1Ref,
-    },
-    {
-      id: 2,
-      color: 'var(--mantine-color-pink-8)',
-      ref: bgSection2Ref,
-    },
-    {
-      id: 3,
-      color: 'var(--mantine-color-pink-7)',
-      ref: bgSection3Ref,
-    },
-    {
-      id: 4,
-      color: 'var(--mantine-color-pink-6)',
-      ref: bgSection4Ref,
-    },
-    {
-      id: 5,
-      color: 'var(--mantine-color-pink-5)',
-      ref: bgSection5Ref,
-    },
-    {
-      id: 6,
-      color: 'var(--mantine-color-pink-4)',
-      ref: bgSection6Ref,
-    },
+    { id: 1, color: 'var(--mantine-color-pink-9)', ref: bgSection1Ref },
+    { id: 2, color: 'var(--mantine-color-pink-8)', ref: bgSection2Ref },
+    { id: 3, color: 'var(--mantine-color-pink-7)', ref: bgSection3Ref },
+    { id: 4, color: 'var(--mantine-color-pink-6)', ref: bgSection4Ref },
+    { id: 5, color: 'var(--mantine-color-pink-5)', ref: bgSection5Ref },
+    { id: 6, color: 'var(--mantine-color-pink-4)', ref: bgSection6Ref },
   ];
+
   const cardsData = [
     {
-      id: 1,
+      id: 0,
       url: '/img/cards/itzam-na.jpg',
       title: 'Itzam Na',
       description: 'Card 1 Description',
@@ -102,7 +78,7 @@ function GridGallery({
       scrollEffect: scaleCardA,
     },
     {
-      id: 2,
+      id: 1,
       url: '/img/cards/intergalactic.jpg',
       title: 'Intergalactic',
       description: 'Card 2 Description',
@@ -110,7 +86,7 @@ function GridGallery({
       scrollEffect: scaleCardB,
     },
     {
-      id: 3,
+      id: 2,
       url: '/img/cards/santo.jpg',
       title: 'Santo',
       description: 'Card 3 Description',
@@ -118,7 +94,7 @@ function GridGallery({
       scrollEffect: scaleCardC,
     },
     {
-      id: 4,
+      id: 3,
       url: '/img/cards/riveras.jpg',
       title: 'Riveras',
       description: 'Card 4 Description',
@@ -126,7 +102,7 @@ function GridGallery({
       scrollEffect: scaleCardD,
     },
     {
-      id: 5,
+      id: 4,
       url: '/img/cards/dr-chunga.jpg',
       title: 'Dr. Chunga',
       description: 'Card 5 Description',
@@ -134,7 +110,7 @@ function GridGallery({
       scrollEffect: scaleCardE,
     },
     {
-      id: 6,
+      id: 5,
       url: '/img/cards/cri-cri.jpg',
       title: 'Cri Cri',
       description: 'Card 6 Description',
@@ -143,47 +119,36 @@ function GridGallery({
     },
   ];
 
-  //Set Card Hover and Active State
-  useEffect(() => {
-    // toggleHoverCard(false);
-    // toggleColor(globalColor.pixelpurple);
-    // toggleColor(globalColor.pixelgreen);
-    // toggleSection('Home');
-    // console.log('Fist Render:' + activeSection);
-    console.log('valueHover: ' + valueHoverCard);
-  }, []);
+  // useEffect(() => {
+  //   console.log('valueHover: ' + valueHoverCard);
+  // }, [valueHoverCard]);
 
   return (
-    <>
-      <div className={classes.grid_gallery_container} ref={galleryRef}>
-        <div className={classes.sticky}>
-          <motion.div
-            className={classes.gallery}
-            // style={{ x: x }}
-          >
-            {cardsData.map((card) => (
-              <Card
-                card={card}
-                key={card.id}
-                //  scrollEffect={card.scrollEffect}
-                // hoverCard={{ scale: valueHoverCard && card.id !== 2 ? 1.1 : 1 }}
-                // hoverCard={{ scale: valueHoverCard ? 1.1 : 1 }}
-              />
-            ))}
-          </motion.div>
-        </div>
-        <div className={classes.grid_bg_sections}>
-          {backgroundCardSections.map((section) => (
-            <motion.div
-              ref={section.ref}
-              className={classes.bg_section}
-              key={section.id}
-              // style={{ backgroundColor: section.color }}
+    <div className={classes.grid_gallery_container} ref={galleryRef}>
+      <div className={classes.sticky}>
+        <motion.div className={classes.gallery} style={{ x }}>
+          {cardsData.map((card, index) => (
+            <Card
+              index={index}
+              card={card}
+              key={card.id}
+              valueHoverCard={valueHoverCard}
+              toggleHoverCard={toggleHoverCard}
             />
           ))}
-        </div>
+        </motion.div>
       </div>
-    </>
+      <div className={classes.grid_bg_sections}>
+        {backgroundCardSections.map((section) => (
+          <motion.div
+            ref={section.ref}
+            className={classes.bg_section}
+            key={section.id}
+            style={{ backgroundColor: section.color }}
+          />
+        ))}
+      </div>
+    </div>
   );
 }
 

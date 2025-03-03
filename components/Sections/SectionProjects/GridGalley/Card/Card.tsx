@@ -66,8 +66,8 @@ function Card({ card, index, hoveredCard, setHoveredCard, activeCard, setActiveC
       animate={{
         // scale: getScale(),
         // scaleX: getScaleX(),
-        width: getWidth(),
-        height: getHeight(),
+        // width: getWidth(),
+        // height: getHeight(),
         originY: 'center',
       }}
       onHoverStart={handleHoverStart}

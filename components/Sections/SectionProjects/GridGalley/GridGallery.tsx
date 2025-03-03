@@ -1,6 +1,5 @@
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
 import { motion, useTransform } from 'framer-motion';
-import { useToggle } from '@mantine/hooks';
 import Card from './Card/Card';
 import classes from './GridGallery.module.css';
 
@@ -21,12 +20,9 @@ function GridGallery({
   scrollYProgressProjectsBgSection5,
   scrollYProgressProjectsBgSection6,
 }: any) {
-  // Hover Card State
-  const [valueHoverCard, toggleHoverCard] = useToggle([0, 1, 2, 3, 4, 5]);
-  // Active Card State
-  const [valueActiveCard, toggleActiveCard] = useToggle();
+  const [hoveredCard, setHoveredCard] = useState<number | null>(null);
+  const [activeCard, setActiveCard] = useState<number | null>(null);
 
-  // Scroll Transformations
   const x = useTransform(scrollYProgressProjectsGallery, [0, 1], ['50%', '-80%']);
   const scaleCardA = useTransform(
     scrollYProgressProjectsBgSection1,
@@ -70,7 +66,7 @@ function GridGallery({
 
   const cardsData = [
     {
-      id: 0,
+      id: 1,
       url: '/img/cards/itzam-na.jpg',
       title: 'Itzam Na',
       description: 'Card 1 Description',
@@ -78,7 +74,7 @@ function GridGallery({
       scrollEffect: scaleCardA,
     },
     {
-      id: 1,
+      id: 2,
       url: '/img/cards/intergalactic.jpg',
       title: 'Intergalactic',
       description: 'Card 2 Description',
@@ -86,7 +82,7 @@ function GridGallery({
       scrollEffect: scaleCardB,
     },
     {
-      id: 2,
+      id: 3,
       url: '/img/cards/santo.jpg',
       title: 'Santo',
       description: 'Card 3 Description',
@@ -94,7 +90,7 @@ function GridGallery({
       scrollEffect: scaleCardC,
     },
     {
-      id: 3,
+      id: 4,
       url: '/img/cards/riveras.jpg',
       title: 'Riveras',
       description: 'Card 4 Description',
@@ -102,7 +98,7 @@ function GridGallery({
       scrollEffect: scaleCardD,
     },
     {
-      id: 4,
+      id: 5,
       url: '/img/cards/dr-chunga.jpg',
       title: 'Dr. Chunga',
       description: 'Card 5 Description',
@@ -110,7 +106,7 @@ function GridGallery({
       scrollEffect: scaleCardE,
     },
     {
-      id: 5,
+      id: 6,
       url: '/img/cards/cri-cri.jpg',
       title: 'Cri Cri',
       description: 'Card 6 Description',
@@ -119,21 +115,30 @@ function GridGallery({
     },
   ];
 
-  // useEffect(() => {
-  //   console.log('valueHover: ' + valueHoverCard);
-  // }, [valueHoverCard]);
+  useEffect(() => {
+    console.log('Hovered card:', hoveredCard);
+  }, [hoveredCard]);
+
+  useEffect(() => {
+    console.log('Active card:', activeCard);
+  }, [activeCard]);
 
   return (
     <div className={classes.grid_gallery_container} ref={galleryRef}>
       <div className={classes.sticky}>
-        <motion.div className={classes.gallery} style={{ x }}>
+        <motion.div
+          className={classes.gallery}
+          // style={{ x }}
+        >
           {cardsData.map((card, index) => (
             <Card
-              index={index}
-              card={card}
               key={card.id}
-              valueHoverCard={valueHoverCard}
-              toggleHoverCard={toggleHoverCard}
+              card={card}
+              index={index}
+              hoveredCard={hoveredCard}
+              setHoveredCard={setHoveredCard}
+              activeCard={activeCard}
+              setActiveCard={setActiveCard}
             />
           ))}
         </motion.div>
@@ -144,7 +149,7 @@ function GridGallery({
             ref={section.ref}
             className={classes.bg_section}
             key={section.id}
-            style={{ backgroundColor: section.color }}
+            // style={{ backgroundColor: section.color }}
           />
         ))}
       </div>

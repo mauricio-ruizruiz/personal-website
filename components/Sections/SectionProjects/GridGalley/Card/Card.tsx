@@ -1,6 +1,4 @@
-import { useEffect } from 'react';
 import { motion } from 'framer-motion';
-import { useToggle } from '@mantine/hooks';
 import classes from './Card.module.css';
 
 interface CardProps {
@@ -11,43 +9,79 @@ interface CardProps {
     description: string;
     typeOfProject: string;
   };
-  valueHoverCard: number;
-  toggleHoverCard: (id?: number) => void;
   index: number;
+  hoveredCard: number | null;
+  setHoveredCard: (id: number | null) => void;
+  activeCard: number | null;
+  setActiveCard: (id: number | null) => void;
 }
 
-function Card({ card, valueHoverCard, toggleHoverCard, index }: CardProps) {
-  const variants = {
-    inactive: { scale: 1 },
-    hover: { scale: 1.5 },
-    nexttohover: { scale: 1.25 },
+function Card({ card, index, hoveredCard, setHoveredCard, activeCard, setActiveCard }: CardProps) {
+  const handleHoverStart = () => {
+    setHoveredCard(index);
   };
 
-  useEffect(() => {
-    // console.log('number card: ' + card.id);
-  }, [valueHoverCard]);
+  const handleHoverEnd = () => {
+    setHoveredCard(null);
+  };
 
-  const handleHover = (index: number) => {
-    console.log('Hovered card index:', index);
-    toggleHoverCard(index);
+  const handleTap = () => {
+    setActiveCard(activeCard === index ? null : index);
+  };
+
+  const getScale = () => {
+    if (hoveredCard === index) {
+      return 1.1;
+    } else if (hoveredCard === index - 1 || hoveredCard === index + 1) {
+      return 1.05;
+    } else {
+      return 1;
+    }
+  };
+  const getHeight = () => {
+    if (hoveredCard === index) {
+      return 680;
+    } else if (hoveredCard === index - 1 || hoveredCard === index + 1) {
+      return 620;
+    } else {
+      return 600;
+    }
+  };
+
+  const getWidth = () => {
+    return activeCard === index ? '450px' : '150px';
+    // return activeCard === index ? '100%' : '50%';
+  };
+  const getScaleX = () => {
+    return activeCard === index ? 1.1 : 1;
+    // return activeCard === index ? '100%' : '50%';
   };
 
   return (
     <motion.div
+      layout
       className={classes.card}
       key={card.id}
       initial={false}
-      variants={variants}
-      animate={valueHoverCard === card.id ? { scale: 1.2 } : { scale: 1 }}
-      // whileHover="hover"
-      onHoverStart={() => handleHover(index)}
-      onHoverEnd={() => {
-        toggleHoverCard(undefined);
-        console.log(valueHoverCard);
+      animate={{
+        // scale: getScale(),
+        // scaleX: getScaleX(),
+        width: getWidth(),
+        height: getHeight(),
+        originY: 'center',
       }}
+      onHoverStart={handleHoverStart}
+      onHoverEnd={handleHoverEnd}
+      onTap={handleTap}
     >
-      <div
+      <motion.div
         className={classes.card_image}
+        animate={
+          {
+            // scale: getScaleX(),
+          }
+        }
+        transition={{ duration: 0.5 }}
         style={{
           backgroundImage: `url(${card.url})`,
         }}

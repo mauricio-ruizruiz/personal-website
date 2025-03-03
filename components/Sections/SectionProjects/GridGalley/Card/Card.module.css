@@ -1,8 +1,10 @@
 .card {
   position: relative;
-  width: 150px;
-  height: 600px;
+  /* width: max-content; */
+  /* height: 650px; */
   /* background-color: var(--mantine-color-grape-9); */
+
+  margin: 0 0.2em 0;
 }
 
 .card_image {

@@ -40,11 +40,11 @@ function Card({ card, index, hoveredCard, setHoveredCard, activeCard, setActiveC
   };
   const getHeight = () => {
     if (hoveredCard === index) {
-      return 680;
+      return 580;
     } else if (hoveredCard === index - 1 || hoveredCard === index + 1) {
-      return 620;
+      return 520;
     } else {
-      return 600;
+      return 500;
     }
   };
 
@@ -66,8 +66,8 @@ function Card({ card, index, hoveredCard, setHoveredCard, activeCard, setActiveC
       animate={{
         // scale: getScale(),
         // scaleX: getScaleX(),
-        // width: getWidth(),
-        // height: getHeight(),
+        width: getWidth(),
+        height: getHeight(),
         originY: 'center',
       }}
       onHoverStart={handleHoverStart}
@@ -76,11 +76,9 @@ function Card({ card, index, hoveredCard, setHoveredCard, activeCard, setActiveC
     >
       <motion.div
         className={classes.card_image}
-        animate={
-          {
-            // scale: getScaleX(),
-          }
-        }
+        animate={{
+          scale: getScaleX(),
+        }}
         transition={{ duration: 0.5 }}
         style={{
           backgroundImage: `url(${card.url})`,
